@@ -50,3 +50,35 @@ export default {
   }
 };
 </script>
+<template>
+  <div>
+    <P class="bg-blue-800 text-white text-center"> {{ title }}</P>
+    <div class="my-5">
+      <h1 v-on:click="setShow(true, $event)">Show</h1>
+      <br />
+      <a v-on:click="setShow(false, $event)"> Hide </a>
+      <p v-show="show">Hide and This Messsage by clicking The</p>
+      <p>{{ eventType }}</p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      show: true,
+      eventType: "",
+      title: "Hide and show",
+    };
+  },
+  methods: {
+    setShow: function (value, event) {
+      if (event) {
+        this.eventType = event.type;
+      }
+      this.show = value;
+    },
+  },
+};
+</script>
