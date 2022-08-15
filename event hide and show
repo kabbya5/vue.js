@@ -23,3 +23,30 @@ export default {
   }
 };
 </script>
+another example 
+<template>
+  <div>
+    <P class="bg-blue-800 text-white text-center"> {{ title }}</P>
+    <div class="my-5">
+      <h1 v-on:click="setShow(true)"> Show </h1> <br>
+      <a v-on:click="setShow(false)"> Hide </a>
+      <p v-show="show">Hide and This Messsage by clicking The</p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      show: true,
+      title: "Hide and show",
+    }
+  },
+  methods: {
+    setShow: function (value){
+      this.show = value;
+    }
+  }
+};
+</script>
