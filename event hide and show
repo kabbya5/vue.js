@@ -1,0 +1,25 @@
+<template>
+  <div>
+    <P class="bg-blue-800 text-white text-center"> {{ name }}</P>
+    <div class="my-5">
+      <h1 v-on:click="toggle">Toggle</h1> // <hi = v-on:click=" show = !show"> then not need methode
+      <p v-show="show">Hide and This Messsage by clicking The</p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      show: true,
+      name: "Kabbya",
+    }
+  },
+  methods: {
+    toggle : function (){
+      this.show = !this.show;
+    }
+  }
+};
+</script>
