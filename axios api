@@ -1,0 +1,40 @@
+<template>
+  <div>
+    <div class="flex flex-col">
+      <label for="serch"> search </label>
+      <input type="text" v-model="searchText" v-on:keyup.enter.esc="search" />
+    </div>
+
+    <div class="my-4">
+      <h5>
+        Results : <small> {{ results.count }}</small>
+      </h5>
+      <ul class="my-4">
+        <li v-for="result in results">
+          {{ result.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "HelloWorld",
+  data: () => {
+    return {
+      searchText: "",
+      results: [],
+    };
+  },
+  methods: {
+    search: function () {
+      axios
+        .get(`https://swapi.co/api/starships/?search=${this.searchText}`)
+        .then((res) => {
+          this.results = res.data;
+        });
+    },
+  },
+};
+</script>
