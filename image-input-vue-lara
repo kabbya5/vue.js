@@ -1,0 +1,15 @@
+@change="onFileChange">
+
+onFileChange(e) {
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+            this.createImage(files[0]);
+        },
+        createImage(file) {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                vm.category.categoryImg = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        },
