@@ -14,3 +14,9 @@
                             <p v-if="errors.category_id" class="text-red-500">{{ errors.category_id[0] }}</p>
                             
                         </div>
+
+
+
+handleChange (event){
+                this.selectItem = event.target.options[event.target.options.selectedIndex].getAttribute('data-name');
+            },
