@@ -1,0 +1,16 @@
+<div class="flex flex-col my-4">
+                            <div class="text-gray-500 capitalize my-2 px-4 text-lg"> 
+                                Selected Category: <span class="px-2 text-gray-500 font-bold"> {{ selectItem }}  </span>
+                            </div>
+                            <select @change="handleChange" v-model="subcat.category_id" class="py-2 border-2 border-gray-200 text-gray-500 focus:outline-none"
+                             :class="{'border-1 border-red-500':errors.category_id}">
+                                <option v-for="cat in categories" :key="cat.id" :value="cat.id" :data-foo="cat.categoryName"
+                                >
+                                    {{ cat.categoryName }}
+                                </option>
+                            
+                            </select>
+
+                            <p v-if="errors.category_id" class="text-red-500">{{ errors.category_id[0] }}</p>
+                            
+                        </div>
