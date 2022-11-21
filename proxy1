@@ -1,0 +1,5 @@
+ if(selectType = 'category'){
+  let selectCat = this.categories.filter( cat => cat.id === this.product.category_id );
+  const proxy1 = new Proxy(selectCat, {});
+  this.subcategories =  JSON.parse(JSON.stringify(proxy1))
+            }
