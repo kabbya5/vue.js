@@ -1,0 +1,20 @@
+data: 
+
+categories:{},
+subcategories:null,
+childcategories:null,
+
+<select @change="handleChange" v-model="product.childcategory_id" class="py-2 w-full border-2 border-gray-200 text-gray-500 focus:outline-none">
+        <option v-for="cat in childcategories" :key="cat.id" :value="cat.id" :data-name="cat.childCatName" data-type="childcat
+
+
+let selectType = event.target.options[event.target.options.selectedIndex].getAttribute('data-type');
+      let value = event.target.options[event.target.options.selectedIndex].getAttribute('data-name');
+      Object.assign(this.selectItem,{[selectType]:value});
+
+      if(selectType = 'category'){
+          let selectCat = this.categories.filter( cat => cat.id === this.product.category_id );
+          const proxy1 = new Proxy(selectCat, {});
+          this.subcategories =  JSON.parse(JSON.stringify(proxy1))[0].subcategories;
+      }
+}
