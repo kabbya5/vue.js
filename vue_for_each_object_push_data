@@ -1,0 +1,6 @@
+let sizes = res.data[5];
+  sizes.forEach(size =>{
+      this.sizesOption.push({
+          value:size.id,name:size.size_title,
+      });
+  });
